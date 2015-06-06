@@ -54,12 +54,14 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.bootloader", bootloader);
 
-    if (strstr(bootloader, "T530")) {
-        /* matissewifi */
-        property_set("ro.build.fingerprint", "samsung/matissewifixx/matissewifi:5.0.2/LRX22G/T530XXU1BOD8:user/release-keys");
-        property_set("ro.build.description", "matissewifixx-user 5.0.2 LRX22G T530XXU1BOD8 release-keys");
+    if (strstr(bootloader, "T535")) {
+        /* matisselte */
+        property_set("ro.build.fingerprint", "samsung/matisseltexx/matisselte:5.0.2/LRX22G/T530XXU1BOD8:user/release-keys");
+        property_set("ro.build.description", "matisseltexx-user 5.0.2 LRX22G T530XXU1BOD8 release-keys");
         property_set("ro.product.model", "SM-T530");
-        property_set("ro.product.device", "matissewifi");
+        property_set("ro.product.device", "matisselte");
+        property_set("ro.telephony.ril_class", "SamsungMSM8226RIL");
+        gsm_properties();
     } else if (strstr(bootloader, "I9301Q")) {
         /* s3ve3gjv */
         property_set("ro.build.fingerprint", "samsung/s3ve3gjv/s3ve3g:4.4.2/KOT49H/I9301QXXUANH1:user/release-keys");

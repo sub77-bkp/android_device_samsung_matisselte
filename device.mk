@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/matissewifi
+LOCAL_PATH := device/samsung/matisselte
 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -20,7 +20,7 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Proprietary files
-$(call inherit-product, vendor/samsung/matissewifi/matissewifi-vendor.mk)
+$(call inherit-product, vendor/samsung/matisselte/matisselte-vendor.mk)
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -75,9 +75,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.carrier=wifi-only \
-	ro.radio.noril=yes
+
 
 
 # Inherit from qcom-common

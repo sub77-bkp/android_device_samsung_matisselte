@@ -2,7 +2,7 @@
 
 set -e
 
-export DEVICE=matissewifi
+export DEVICE=matisselte
 export VENDOR=samsung
 
 function extract() {
