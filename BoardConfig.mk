@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-TARGET_OTA_ASSERT_DEVICE 			:= matissewifi,matissewifixx
+#TARGET_OTA_ASSERT_DEVICE 			:= matisselte,matisseltexx
 
 # Architecture
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -34,14 +34,20 @@ TARGET_KRAIT_BIONIC_PLDTHRESH 		:= 10
 TARGET_KRAIT_BIONIC_BBTHRESH 		:= 64
 TARGET_KRAIT_BIONIC_PLDSIZE 		:= 64
 
-BOARD_CUSTOM_BOOTIMG_MK 			:= device/samsung/matissewifi/custombootimg.mk
-TARGET_PREBUILT_KERNEL 				:= device/samsung/matissewifi/kernel
+BOARD_CUSTOM_BOOTIMG_MK 			:= device/samsung/matisselte/custombootimg.mk
+TARGET_PREBUILT_KERNEL 				:= device/samsung/matisselte/kernel/kernel-f2fs
 
+#BOARD_CUSTOM_BOOTIMG_MK := device/samsung/matisselte/mkbootimg.mk
+#BOARD_KERNEL_BASE := 0x00000000
+#BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
+#BOARD_KERNEL_PAGESIZE := 2048
+#BOARD_KERNEL_SEPARATED_DT := true
+#BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 #TARGET_KERNEL_SOURCE := kernel/samsung/matissewifi
 #TARGET_KERNEL_CONFIG := twrp-matisse_defconfig
-#TARGET_KERNEL_VARIANT_CONFIG := twrp-matissewifi_defconfig
+#TARGET_KERNEL_VARIANT_CONFIG := twrp-matisselte_defconfig
 
-TARGET_RECOVERY_FSTAB 				:= device/samsung/matissewifi/fstab.qcom
+TARGET_RECOVERY_FSTAB 				:= device/samsung/matisselte/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGBX_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX		:= true
 BOARD_USE_CUSTOM_RECOVERY_FONT 		:= \"roboto_15x24.h\"
@@ -65,7 +71,7 @@ TW_HAS_DOWNLOAD_MODE 				:= true
 TW_NO_USB_STORAGE 					:= true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 10485760
-BOARD_RECOVERYIMAGE_PARTITION_SIZE	:= 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE	:= 11485760
 BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 2147483648
 BOARD_FLASH_BLOCK_SIZE 				:= 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -82,21 +88,21 @@ TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 
 MR_INPUT_TYPE := type_b
-MR_INIT_DEVICES := device/samsung/matissewifi/multirom/mr_init_devices.c
+MR_INIT_DEVICES := device/samsung/matisselte/multirom/mr_init_devices.c
 MR_DPI := hdpi
 MR_DPI_FONT := 160
-MR_FSTAB := device/samsung/matissewifi/twrp.fstab
+MR_FSTAB := device/samsung/matisselte/twrp.fstab
 MR_USE_MROM_FSTAB := true
 # End of first RAM region is 0x083fffff, so we set it to for example 0x06500000
 MR_KEXEC_MEM_MIN := 0x06500000
 MR_KEXEC_DTB := true
 MR_PIXEL_FORMAT := "RGBX_8888"
 MR_USE_QCOM_OVERLAY := true
-MR_QCOM_OVERLAY_HEADER := device/samsung/matissewifi/multirom/mr_qcom_overlay.h
+MR_QCOM_OVERLAY_HEADER := device/samsung/matisselte/multirom/mr_qcom_overlay.h
 MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
-MR_DEVICE_HOOKS := device/samsung/matissewifi/multirom/mr_hooks.c
+MR_DEVICE_HOOKS := device/samsung/matisselte/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 5
-#MR_DEVICE_RECOVERY_HOOKS := device/samsung/matissewifi/multirom/mr_hooks_recovery.c
+#MR_DEVICE_RECOVERY_HOOKS := device/samsung/matisselte/multirom/mr_hooks_recovery.c
 #MR_DEVICE_RECOVERY_HOOKS_VER := 1
 MR_CONTINUOUS_FB_UPDATE := true
 

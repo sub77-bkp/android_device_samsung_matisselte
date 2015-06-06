@@ -1,5 +1,5 @@
-DTB := device/samsung/matissewifi/kernel/dtb
-
+DTB := device/samsung/matisselte/kernel/dtb
+KER := device/samsung/matisselte/kernel/kernel-f2fs
 LZMA_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
 
 $(LZMA_RAMDISK): $(recovery_ramdisk)
@@ -9,7 +9,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(LZMA_RAMDISK) \
 		$(recovery_kernel)
 	@echo ----- Making recovery image ------
-	$(MKBOOTIMG) --kernel $(PRODUCT_OUT)/kernel --ramdisk $(LZMA_RAMDISK) --cmdline "console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1" --base 0x00008000 --pagesize 4096 --ramdisk_offset 0x02000000 --dt $(DTB) --tags_offset 0x01e00000 --output $(PRODUCT_OUT)/recovery.img
+	$(MKBOOTIMG) --kernel $(KER) --ramdisk $(LZMA_RAMDISK) --cmdline "console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1" --base 0x00008000 --pagesize 4096 --ramdisk_offset 0x02000000 --dt $(DTB) --tags_offset 0x01e00000 --output $(PRODUCT_OUT)/recovery.img
 	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	
