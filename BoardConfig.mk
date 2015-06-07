@@ -93,8 +93,8 @@ MR_DPI := hdpi
 MR_DPI_FONT := 160
 MR_FSTAB := device/samsung/matisselte/twrp.fstab
 MR_USE_MROM_FSTAB := true
-# End of first RAM region is 0x083fffff, so we set it to for example 0x06500000
-MR_KEXEC_MEM_MIN := 0x06500000
+# End of first RAM region is 0x07ffffff , so we set it to for example 0x06500000
+MR_KEXEC_MEM_MIN := 0x05500000
 MR_KEXEC_DTB := true
 MR_PIXEL_FORMAT := "RGBX_8888"
 MR_USE_QCOM_OVERLAY := true
