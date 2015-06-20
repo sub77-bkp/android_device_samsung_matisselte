@@ -20,7 +20,7 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Proprietary files
-$(call inherit-product, vendor/samsung/matisselte/matisselte-vendor.mk)
+$(call inherit-product, vendor/samsung/matissewifi/matissewifi-vendor.mk)
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
