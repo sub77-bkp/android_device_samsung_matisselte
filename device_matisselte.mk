@@ -16,10 +16,10 @@
 
 PRODUCT_CHARACTERISTICS := tablet
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/matissewifi/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/samsung/matissewifi/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/matisselte/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/samsung/matisselte/overlay
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/samsung/matissewifi/matissewifi-vendor.mk)
 
@@ -32,8 +32,9 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Packs
 PRODUCT_PACKAGES += \
-    openssh
-
+    openssh \
+    exfat \
+    ntfs-3g
 
 #CAF Branch
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -49,15 +50,15 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/samsung/matissewifi/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
+    device/samsung/matisselte/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/samsung/matissewifi/ramdisk,root)
+    $(call find-copy-subdir-files,*,device/samsung/matisselte/ramdisk,root)
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/samsung/matissewifi/prebuilt/system,system)
+    $(call find-copy-subdir-files,*,device/samsung/matisselte/prebuilt/system,system)
 
 #Call CodeAurora MSM8226 Tree
 include device/qcom/msm8226/msm8226.mk

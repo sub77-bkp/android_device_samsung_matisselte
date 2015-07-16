@@ -1,1 +1,1 @@
-add_lunch_combo full_matissewifi-userdebug
+add_lunch_combo full_matisselte-userdebug

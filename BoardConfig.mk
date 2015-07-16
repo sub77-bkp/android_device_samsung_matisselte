@@ -17,17 +17,17 @@
 # inherit from common msm8226-common
 -include device/qcom/msm8226/BoardConfig.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/matissewifi/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/matisselte/include
 
 # Architecture
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := matissewifi, matissewifixx, matisse3g, matisse3gxx
+TARGET_OTA_ASSERT_DEVICE := matissewifi, matissewifixx, matisse3g, matisse3gxx, matisselte, matisseltexx
 
 # Board
-TARGET_BOARD_INFO_FILE := device/samsung/matissewifi/board-info.txt
+TARGET_BOARD_INFO_FILE := device/samsung/matisselte/board-info.txt
 
 #TARGET_USES_LOGD := false
 
@@ -51,7 +51,7 @@ AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 #AUDIO_FEATURE_ENABLED_MULTIPLE_TUNNEL := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/matissewifi/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/matisselte/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -81,7 +81,7 @@ BOARD_HAVE_NEW_QC_GPS := true
 TARGET_USES_C2D_COMPOSITION := true
 
 # Kernel
-KERNEL_DEFCONFIG := matissewifi_defconfig
+KERNEL_DEFCONFIG := matisselte_defconfig
 TARGET_KERNEL_SOURCE := kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 androidboot.bootdevice=msm_sdcc.1
 BOARD_KERNEL_SEPARATED_DT := true
@@ -106,21 +106,21 @@ TARGET_POWERHAL_VARIANT := qcom
 BOARD_USES_QCOM_HARDWARE := false
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/matissewifi/ramdisk/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/matisselte/ramdisk/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Release tools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/matissewifi
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/matisselte
 
 # SELinux
 
 -include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/matissewifi/sepolicy
+    device/samsung/matisselte/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     akmd8963.te \
@@ -152,7 +152,7 @@ BOARD_SEPOLICY_UNION += \
 # Vendor init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/matissewifi/init/init_matissewifi.c
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/matisselte/init/init_matissewifi.c
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
